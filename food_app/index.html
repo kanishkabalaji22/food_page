@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AURA | Anti-Gravity Natural Health Foods E-Commerce</title>
+  <meta name="description" content="Ultra-modern, elevated natural health food e-commerce platform featuring raw honey, ABC malt, sprouted health mixes, and cold-pressed seeds with 100% full transparency breakdowns and NABL lab certificates." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Custom Anti-Gravity Styles -->
+  <link rel="stylesheet" href="./styles.css" />
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <!-- Anti-Gravity Ambient Orbs -->
+  <div class="ambient-floating-bg">
+    <div class="floating-orb orb-1"></div>
+    <div class="floating-orb orb-2"></div>
+    <div class="floating-orb orb-3"></div>
+  </div>
+
+  <!-- Global Sticky Floating Navigation Bar -->
+  <div class="navbar-wrapper">
+    <nav class="navbar" id="navbar">
+      <a href="#" class="brand-logo">
+        <i data-lucide="sparkles"></i>
+        AURA <span style="font-weight: 400; font-size: 0.9rem; color: var(--honey-gold-dark);">| Anti-Gravity</span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#catalog" class="nav-link active">Shop Catalog</a></li>
+        <li><a href="#health-quiz" class="nav-link">Health Finder</a></li>
+        <li><a href="#lab-portal" class="nav-link">Lab Testing</a></li>
+        <li><a href="#philosophy" class="nav-link">Our Philosophy</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <div class="search-bar-container">
+          <i data-lucide="search" class="search-icon"></i>
+          <input type="text" id="searchInput" class="search-input" placeholder="Search honey, ABC malt..." />
+        </div>
+
+        <button class="health-quiz-pill" onclick="document.getElementById('health-quiz').scrollIntoView({behavior:'smooth'})">
+          <span>⚡ Health Goal Match</span>
+        </button>
+
+        <button class="cart-btn" id="cartBtn" onclick="openCartDrawer()" title="View Shopping Cart">
+          <i data-lucide="shopping-bag"></i>
+          <span class="cart-badge" id="cartBadge">0</span>
+        </button>
+      </div>
+    </nav>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="hero-pill-tag">
+          <i data-lucide="leaf"></i> 100% Pure, Unfiltered & Lab Certified
+        </div>
+        <h1 class="hero-title">
+          Nourishment as <span>Nature Intended.</span>
+        </h1>
+        <p class="hero-subtitle">
+          Pure, lab-certified, cold-processed superfoods engineered for cellular vitality, sustained hemoglobin, and anti-gravity lightness.
+        </p>
+
+        <div class="hero-ctas">
+          <a href="#catalog" class="btn-primary">
+            Explore Natural Products <i data-lucide="arrow-right"></i>
+          </a>
+          <button class="btn-secondary" onclick="openPdpModal('abc-malt-drink')">
+            <i data-lucide="shield-check"></i> View Ingredients & Sourcing
+          </button>
+        </div>
+
+        <div class="hero-trust-bar">
+          <div class="trust-item"><i data-lucide="check-circle"></i> 100% Raw</div>
+          <div class="trust-item"><i data-lucide="check-circle"></i> Zero Sugar Added</div>
+          <div class="trust-item"><i data-lucide="check-circle"></i> NABL Certified</div>
+          <div class="trust-item"><i data-lucide="check-circle"></i> Direct Sourced</div>
+        </div>
+      </div>
+
+      <!-- Hero Anti-Gravity Spotlight Renders -->
+      <div class="hero-visual-card">
+        <div class="floating-spotlight-card">
+          <div class="floating-badge badge-top-right">
+            <span>✨ 100% Raw Wildflower</span>
+          </div>
+          <div class="floating-badge badge-bottom-left">
+            <span>🔬 NABL Lab Clearance</span>
+          </div>
+
+          <div class="spotlight-img-container">
+            <img src="./images/raw_wildflower_honey.jpg" alt="Pure Raw Wildflower Honey Showcase" class="spotlight-img" />
+          </div>
+
+          <div class="spotlight-meta">
+            <div>
+              <div class="spotlight-title">Raw Wildflower Honey</div>
+              <div style="font-size: 0.85rem; color: var(--text-muted);">Cold-Harvested • Bio-Active</div>
+            </div>
+            <div class="spotlight-price">$18.00</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Health Finder (Goal Quiz Widget) -->
+  <section class="quiz-section" id="health-quiz">
+    <div class="container">
+      <div class="quiz-card-wrapper">
+        <div class="section-header">
+          <span class="section-tag">Interactive Health Finder</span>
+          <h2 class="section-title">What is Your Primary Wellness Goal?</h2>
+          <p class="section-desc">Select your target health objective below for instant product compatibility matching.</p>
+        </div>
+
+        <div class="health-goals-grid">
+          <div class="goal-card" onclick="selectGoalCard(this, 'anemia')">
+            <div class="goal-icon">🩸</div>
+            <div class="goal-label">Anemia Management</div>
+          </div>
+          <div class="goal-card" onclick="selectGoalCard(this, 'energy')">
+            <div class="goal-icon">⚡</div>
+            <div class="goal-label">Sustained Energy</div>
+          </div>
+          <div class="goal-card" onclick="selectGoalCard(this, 'immunity')">
+            <div class="goal-icon">🐝</div>
+            <div class="goal-label">Immunity Support</div>
+          </div>
+          <div class="goal-card" onclick="selectGoalCard(this, 'diabetes')">
+            <div class="goal-icon">⚖️</div>
+            <div class="goal-label">Low-GI Diabetes Care</div>
+          </div>
+          <div class="goal-card" onclick="selectGoalCard(this, 'growth')">
+            <div class="goal-icon">👶</div>
+            <div class="goal-label">Child Growth</div>
+          </div>
+          <div class="goal-card" onclick="selectGoalCard(this, 'gut')">
+            <div class="goal-icon">🌿</div>
+            <div class="goal-label">Gut & Digestion</div>
+          </div>
+        </div>
+
+        <div class="quiz-result-container" id="quizResultContainer">
+          <!-- Dynamic recommendation inserted here -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Catalog & Category Filter Grid -->
+  <section class="catalog-section" id="catalog">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Anti-Gravity Collection</span>
+        <h2 class="section-title">Elevated Organic Superfoods</h2>
+        <p class="section-desc">Each product features full 100% ingredients disclosure, cold-processing, and batch purity passports.</p>
+      </div>
+
+      <!-- Category Tabs -->
+      <div class="category-tabs">
+        <button class="cat-tab active" onclick="filterCategory('all', this)">All Products</button>
+        <button class="cat-tab" onclick="filterCategory('honey', this)">Pure Honey & Bee Products</button>
+        <button class="cat-tab" onclick="filterCategory('malts', this)">Nutritional Malts (ABC Malt)</button>
+        <button class="cat-tab" onclick="filterCategory('mixes', this)">Traditional Sprouted Mixes</button>
+        <button class="cat-tab" onclick="filterCategory('snacks', this)">Low-GI & Conscious Snacks</button>
+      </div>
+
+      <!-- Products Grid -->
+      <div class="products-grid" id="productsGrid">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Lab Passport Portal Section -->
+  <section class="lab-section" id="lab-portal">
+    <div class="container">
+      <div class="lab-passport-card">
+        <div>
+          <span class="section-tag">Transparency Guarantee</span>
+          <h2 style="font-size: 2.2rem; margin-bottom: 16px;">Search Any Batch Test Report</h2>
+          <p style="color: var(--text-muted); margin-bottom: 24px;">Every single jar produced is sampled and certified by independent NABL-accredited laboratories for 0% heavy metals, zero pesticides, and zero artificial sugar syrup.</p>
+          <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+            <button class="btn-primary" onclick="openLabPassportModal('AG-2026-8812')">
+              <i data-lucide="file-text"></i> Inspect Sample Lab Report #AG-2026-8812
+            </button>
+          </div>
+        </div>
+        <div style="background: white; padding: 28px; border-radius: var(--radius-lg); border: 1px solid var(--border-light);">
+          <h4 style="font-size: 1.1rem; color: var(--primary-sage); margin-bottom: 12px;">Standard Lab Screening Protocol:</h4>
+          <ul style="display: flex; flex-direction: column; gap: 10px; font-size: 0.9rem; color: var(--text-muted); list-style: none;">
+            <li>✓ <strong>C4 / C3 Sugar Syrup Test:</strong> 0.00% (Passed)</li>
+            <li>✓ <strong>Heavy Metals (Lead/Arsenic/Mercury):</strong> &lt; 0.001 ppm</li>
+            <li>✓ <strong>Aflatoxins B1/B2/G1/G2 Screen:</strong> Negative</li>
+            <li>✓ <strong>Pollen Identity Count:</strong> 34,000+ grains / 10g</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Philosophy & Sourcing Timeline -->
+  <section class="quiz-section" id="philosophy">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Anti-Gravity Standard</span>
+        <h2 class="section-title">Our Purity & Processing Promise</h2>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px;">
+        <div class="glass-panel" style="padding: 28px;">
+          <div style="font-size: 2.2rem; margin-bottom: 12px;">🐝</div>
+          <h3 style="font-size: 1.25rem; margin-bottom: 8px;">Ethical Wild Harvest</h3>
+          <p style="font-size: 0.9rem; color: var(--text-muted);">Sourced directly from native tribal apiaries without heat processing or chemical smoke extraction.</p>
+        </div>
+
+        <div class="glass-panel" style="padding: 28px;">
+          <div style="font-size: 2.2rem; margin-bottom: 12px;">❄️</div>
+          <h3 style="font-size: 1.25rem; margin-bottom: 8px;">Cold-Processed Technology</h3>
+          <p style="font-size: 0.9rem; color: var(--text-muted);">Dehydrated at controlled temperatures (&lt;40°C) to lock in natural antioxidants, bio-iron, and enzymes.</p>
+        </div>
+
+        <div class="glass-panel" style="padding: 28px;">
+          <div style="font-size: 2.2rem; margin-bottom: 12px;">🛡️</div>
+          <h3 style="font-size: 1.25rem; margin-bottom: 8px;">Zero Preservative Guarantee</h3>
+          <p style="font-size: 0.9rem; color: var(--text-muted);">No synthetic additives, artificial colorings, maltodextrin fillers, or refined cane sugars ever.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-logo">AURA Anti-Gravity Health</div>
+          <p class="footer-desc">Elevated natural health food e-commerce platform dedicated to 100% full ingredient transparency, cold-processing, and lab-certified organic superfoods.</p>
+        </div>
+
+        <div>
+          <div class="footer-title">Navigation</div>
+          <ul class="footer-links">
+            <li><a href="#catalog">Shop All Superfoods</a></li>
+            <li><a href="#health-quiz">Health Finder Quiz</a></li>
+            <li><a href="#lab-portal">Lab Test Certificates</a></li>
+            <li><a href="#philosophy">Our Sourcing Philosophy</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-title">Categories</div>
+          <ul class="footer-links">
+            <li><a href="#catalog">Raw Wildflower Honey</a></li>
+            <li><a href="#catalog">ABC Vitality Malt</a></li>
+            <li><a href="#catalog">Sprouted Multi-Grain Mix</a></li>
+            <li><a href="#catalog">Cold-Pressed Seed Mix</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-title">Purity Promise</div>
+          <p style="font-size: 0.88rem; color: #A0B29F; margin-bottom: 16px;">Join 15,000+ conscious health enthusiasts receiving weekly organic wellness blueprints.</p>
+          <div style="display: flex; gap: 8px;">
+            <input type="email" placeholder="Enter your email" style="padding: 10px 14px; border-radius: 99px; border: none; font-size: 0.85rem; width: 100%;" />
+            <button class="btn-primary" style="padding: 10px 20px;">Join</button>
+          </div>
+        </div>
+      </div>
+
+      <div style="border-top: 1px solid #283C25; padding-top: 24px; text-align: center; color: #7B8F79; font-size: 0.85rem;">
+        © 2026 AURA Anti-Gravity Health Foods Inc. All Rights Reserved. • NABL Accredited Facility
+      </div>
+    </div>
+  </footer>
+
+  <!-- Dedicated Product Detail Page (PDP) Blueprint Modal -->
+  <div class="modal-overlay" id="pdpModalOverlay" onclick="if(event.target === this) closePdpModal()">
+    <div class="pdp-modal" id="pdpModalContent">
+      <!-- PDP dynamic template rendered by app.js -->
+    </div>
+  </div>
+
+  <!-- NABL Lab Certificate Viewer Modal -->
+  <div class="modal-overlay" id="labModalOverlay" onclick="if(event.target === this) closeLabModal()">
+    <div class="pdp-modal" id="labModalContent" style="max-width: 640px;">
+      <!-- Lab certificate details rendered by app.js -->
+    </div>
+  </div>
+
+  <!-- Interactive Slide-Over Glass Cart Drawer -->
+  <div class="cart-drawer-overlay" id="cartDrawerOverlay" onclick="closeCartDrawer()"></div>
+  <div class="cart-drawer" id="cartDrawer">
+    <div class="cart-header">
+      <h3 style="font-size: 1.25rem; font-weight: 800;">Your Anti-Gravity Cart</h3>
+      <button onclick="closeCartDrawer()" style="font-size: 1.2rem; color: var(--text-dark);">&times;</button>
+    </div>
+
+    <div class="cart-shipping-meter">
+      <div style="font-size: 0.85rem; font-weight: 700; color: var(--primary-sage);" id="shippingMsg">
+        Add $15 more for FREE Express Anti-Gravity Delivery!
+      </div>
+      <div class="shipping-bar-track">
+        <div class="shipping-bar-fill" id="shippingBarFill"></div>
+      </div>
+    </div>
+
+    <div class="cart-items-list" id="cartItemsList">
+      <!-- Cart items injected dynamically -->
+    </div>
+
+    <div class="cart-footer">
+      <div class="cart-summary-row">
+        <span>Subtotal</span>
+        <span id="cartSubtotal">$0.00</span>
+      </div>
+      <div class="cart-summary-row">
+        <span>Express Delivery</span>
+        <span style="color: var(--primary-sage); font-weight: 700;">FREE</span>
+      </div>
+      <div class="cart-summary-row total">
+        <span>Total</span>
+        <span id="cartTotal">$0.00</span>
+      </div>
+
+      <button class="btn-primary" style="width: 100%; margin-top: 16px;" onclick="openCheckoutModal()">
+        Proceed to Checkout <i data-lucide="arrow-right"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- Checkout Modal Workflow -->
+  <div class="modal-overlay" id="checkoutModalOverlay" onclick="if(event.target === this) closeCheckoutModal()">
+    <div class="pdp-modal" id="checkoutModalContent" style="max-width: 580px;">
+      <!-- Checkout workflow injected dynamically -->
+    </div>
+  </div>
+
+  <!-- Core App Logic -->
+  <script src="./app.js"></script>
+</body>
+</html>
